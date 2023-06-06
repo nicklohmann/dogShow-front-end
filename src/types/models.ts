@@ -1,7 +1,6 @@
 /* ---------===== custom props ====--------- */
 
 
-
 /* ---------===== auth models =====--------- */
 
 export interface Profile {

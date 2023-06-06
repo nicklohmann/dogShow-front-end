@@ -1,6 +1,10 @@
 /* ---------==== custom forms ====--------- */
 
-
+export interface dogFormData {
+  name: string;
+  breed: string;
+  id?: number
+}
 
 /* ---------===== auth forms =====--------- */
 
