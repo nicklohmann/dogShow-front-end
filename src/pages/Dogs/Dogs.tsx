@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import * as profileService from '../../services/profileService'
 
 // css
-import styles from './Profiles.module.css'
+import styles from './Dogs.module.css'
 
 // types
 import { Profile } from '../../types/models'
@@ -38,5 +38,4 @@ const Profiles = (): JSX.Element => {
     </main>
   )
 }
- 
 export default Profiles
