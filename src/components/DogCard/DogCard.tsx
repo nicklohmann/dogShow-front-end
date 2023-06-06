@@ -1,7 +1,10 @@
-
+//assets
+import defaultPic from "../../assets/profile.png"
+// types:
+import { Dog } from "../../types/models"
 
 interface DogCardProps {
-  //dog: Dog;
+  dog: Dog;
 }
 
 const DogCard = (props: DogCardProps): JSX.Element => {
@@ -9,13 +12,12 @@ const DogCard = (props: DogCardProps): JSX.Element => {
   return (
     <article>
       <img 
-        src="" 
-        alt="" 
+        src={dog.photo ? dog.photo : defaultPic } 
+        alt={`${dog.name}'s picture`} 
       />
-      
-
+      <h1>{dog.name}</h1>
     </article>
   )
 }
 
-export default;
+export default DogCard
