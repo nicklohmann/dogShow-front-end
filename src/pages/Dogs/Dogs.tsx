@@ -1,3 +1,6 @@
+//npm modules
+import { useState, useEffect } from 'react'
+
 // components
 import DogCard from '../../components/DogCard/DogCard'
 
