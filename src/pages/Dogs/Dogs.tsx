@@ -2,40 +2,36 @@
 import { useState, useEffect } from 'react'
 
 // services
-import * as profileService from '../../services/profileService'
+import * as dogService from '../../services/dogService'
+
+// components
+import DogCard from '../../components/DogCard/DogCard'
 
 // css
 import styles from './Dogs.module.css'
 
 // types
-import { Profile } from '../../types/models'
+import { Dog } from '../../types/models'
 
-const Profiles = (): JSX.Element => {
-  const [profiles, setProfiles] = useState<Profile[]>([])
+interface DogsProps {
+  dogs: Dog[];
+}
+const dogs = (props: DogsProps): JSX.Element => {
+  const { dogs } = props
 
-  useEffect((): void => {
-    const fetchProfiles = async (): Promise<void> => {
-      try {
-        const profileData: Profile[] = await profileService.getAllProfiles()
-        setProfiles(profileData)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchProfiles()
-  }, [])
-
-  if (!profiles.length) {
+  if (!dogs.length) {
     return <main className={styles.container}><h1>Loading...</h1></main>
   }
 
   return (
-    <main className={styles.container}>
-      <h1>Hello. This is a list of all the profiles.</h1>
-      {profiles.map((profile: Profile) => (
-        <p key={profile.id}>{profile.name}</p>
+    <main className="list">
+      {dogs.map((dog: Dog) => (
+        <DogCard
+          key={dog.id}
+          dog={dog}
+        />
       ))}
     </main>
   )
 }
-export default Profiles
+export default dogs
