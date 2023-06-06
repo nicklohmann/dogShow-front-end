@@ -1,9 +1,3 @@
-// npm modules
-import { useState, useEffect } from 'react'
-
-// services
-import * as dogService from '../../services/dogService'
-
 // components
 import DogCard from '../../components/DogCard/DogCard'
 
