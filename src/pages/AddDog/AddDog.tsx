@@ -1,31 +1,51 @@
-//npm modules
-import React, { useState, useRef } from "react"
+// npm modules
+import { useState, useRef} from "react"
+import { useNavigate } from "react-router-dom";
 
-//types
-import { PhotoFormData } from '../../types/forms'
-import { Dog } from "../../types/models"
-import { dogFormData } from "../../types/forms"
+// services
+import * as dogService from '../../services/dogService'
 
-interface AddDogFormProps {
-  dog?: Dog;
-  onSubmit: (formData: Dog) => void
-}
+// css
 
+// components
+
+// types
+import { Dog, Profile, User } from "../../types/models"
+import { dogFormData, PhotoFormData } from "../../types/forms"
+
+/* interface AddDogProps {
+  profile: Profile;
+  setProfile: (profile: Profile) => void;
+} */
 const defaultFormData = {
   name: "",
   breed:"",
   photo:""
 
 }
+const Newdog = () => {
+  const navigate = useNavigate()
+  const [formData, setFormData] = useState<dogFormData>(defaultFormData)
 
-const AddDogForm = (props: AddDogFormProps) => {
-  const [formData, setFormData] = useState<dogFormData>(props.dog || defaultFormData)
   const imgInputRef = useRef<HTMLInputElement | null>(null)
   const [message, setMessage] = useState('')
   const [photoData, setPhotoData] = useState<PhotoFormData>({
     photo: null
   })
 
+  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [evt.target.name]: evt.target.value })
+  }
+
+  const handleSubmit = async (evt: React.FormEvent): Promise<void> => {
+    evt.preventDefault()
+    handleAddDog(formData)
+  }
+
+  const handleAddDog = async (formData: dogFormData) => {
+    await dogService.create(formData)
+    navigate('/dogs')
+  }
   const handleChangePhoto = (evt: React.ChangeEvent<HTMLInputElement>) => {
     if (!evt.target.files) return
     const file = evt.target.files[0]
@@ -53,18 +73,10 @@ const AddDogForm = (props: AddDogFormProps) => {
     setPhotoData({ photo: evt.target.files[0] })
   }
 
-  const handleChange = (evt) => {
-    setFormData({...formData, [evt.target.name]: evt.target.value})
-  }
-
-  const handleSubmit = (evt: React.FormEvent<HTMLElement>) => {
-    evt.preventDefault()
-    props.onSubmit(formData)
-    setFormData(defaultFormData)
-  }
-
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
+    <main>
+      <h1>HELLO</h1>
+      <form onSubmit={handleSubmit} autoComplete="off">
       <label htmlFor="name-input">Name</label>
       <input
         required
@@ -98,7 +110,8 @@ const AddDogForm = (props: AddDogFormProps) => {
 
       <button type="submit">SUBMIT</button>
     </form>
+    </main>
   )
 }
 
-export default AddDogForm
+export default Newdog

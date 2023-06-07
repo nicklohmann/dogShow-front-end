@@ -16,6 +16,7 @@ const DogCard = (props: DogCardProps): JSX.Element => {
         alt={`${dog.name}'s picture`} 
       />
       <h1>{dog.name}</h1>
+      
     </article>
   )
 }
