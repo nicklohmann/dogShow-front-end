@@ -95,6 +95,9 @@ const Dogs = (props: DogsProps): JSX.Element => {
         <DogCard
           key={dog.id}
           dog={dog}
+          user={user}
+          onDelete={handleDeleteDog}
+          onSubmit={handleUpdateDog}
         />
       ))}
     </main>

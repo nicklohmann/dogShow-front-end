@@ -8,7 +8,6 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Dogs from './pages/Dogs/Dogs'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
-import Newdog from './pages/AddDog/AddDog'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -62,15 +61,6 @@ function App(): JSX.Element {
             <ProtectedRoute user={user}>
               <Dogs 
                 user={user}
-              />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/new"
-          element={
-            <ProtectedRoute user={user}>
-              <Newdog 
               />
             </ProtectedRoute>
           }
