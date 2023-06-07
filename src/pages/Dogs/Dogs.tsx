@@ -86,7 +86,11 @@ const Dogs = (props: DogsProps): JSX.Element => {
   return (
     <main className="list">
       <h1>Dogs</h1>
-      <button></button>
+      <button onClick={handleNewForm}>
+        {" "}
+        {addDogForm ? "cancel" : "Add Dog"}
+      </button>
+      {addDogForm ? <AddDogForm onSubmit={handleAddDog} />: ""}
       {dogs.map((dog: Dog) => (
         <DogCard
           key={dog.id}
