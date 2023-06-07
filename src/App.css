@@ -10,7 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: sofia-pro, sans-serif;
   --primary: #F2B138;
-  --secondary: #6574d0;
+  --secondary: #22abd4;
   --outline: #ffffff;
   --background: #f2f4f8;
   --border: rgb(220, 220, 220);
@@ -134,7 +134,7 @@ nav {
   position: fixed;
   padding: 12px 20px;
   align-items: center;
-  background: white;
+  background: var(--secondary);
   border-bottom: 1px solid rgb(200, 200, 200);
 }
 

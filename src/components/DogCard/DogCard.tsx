@@ -54,8 +54,14 @@ const DogCard = (props: DogCardProps): JSX.Element => {
       ""
     )}
     {editNow ? (
-      <AddDogForm dog={dog} onSubmit={onSubmit} />
-    ) : (
+      <div>
+        <AddDogForm dog={dog} onSubmit={onSubmit} />
+        <div>
+          <button onClick={handleRemoveDog}>Remove</button>
+        </div>
+      </div>
+    ) 
+    : (
       <div>
         <h2>{dog.breed}</h2>
       </div>
