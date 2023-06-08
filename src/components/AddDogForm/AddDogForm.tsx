@@ -1,10 +1,11 @@
 //npm modules
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 
 //types
-//import { PhotoFormData } from '../../types/forms'
+import { PhotoFormData } from '../../types/forms'
 import { Dog } from "../../types/models"
 import { dogFormData } from "../../types/forms"
+import { Navigate, useNavigate } from "react-router-dom";
 
 interface AddDogFormProps {
   dog?: Dog;
@@ -19,14 +20,16 @@ const defaultFormData = {
 }
 
 const AddDogForm = (props: AddDogFormProps) => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState<dogFormData>(props.dog || defaultFormData)
- // const imgInputRef = useRef<HTMLInputElement | null>(null)
-  //const [message, setMessage] = useState('')
-  //const [photoData, setPhotoData] = useState<PhotoFormData>({
-   // photo: null
- // })
+  const imgInputRef = useRef<HTMLInputElement | null>(null)
+  const [message, setMessage] = useState('')
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [photoData, setPhotoData] = useState<PhotoFormData>({
+    photo: null
+  })
 
-  /* const handleChangePhoto = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangePhoto = (evt: React.ChangeEvent<HTMLInputElement>) => {
     if (!evt.target.files) return
     const file = evt.target.files[0]
     let isFileInvalid = false
@@ -51,7 +54,7 @@ const AddDogForm = (props: AddDogFormProps) => {
       return
     }
     setPhotoData({ photo: evt.target.files[0] })
-  } */
+  }
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
@@ -61,10 +64,12 @@ const AddDogForm = (props: AddDogFormProps) => {
     evt.preventDefault()
     props.onSubmit(formData)
     setFormData(defaultFormData)
+    navigate('/dogs')
   }
 
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
+      <h1>{message}</h1>
       <label htmlFor="name-input">Name</label>
       <input
         required
@@ -92,8 +97,8 @@ const AddDogForm = (props: AddDogFormProps) => {
             type="file" 
             name="photo" 
             id="photo"
-            onChange={handleChange}
-            //ref={imgInputRef}
+            onChange={handleChangePhoto}
+            ref={imgInputRef}
           />
         </label>
 
