@@ -21,12 +21,12 @@ const defaultFormData = {
 const AddDogForm = (props: AddDogFormProps) => {
   const [formData, setFormData] = useState<dogFormData>(props.dog || defaultFormData)
   const imgInputRef = useRef<HTMLInputElement | null>(null)
-  const [message, setMessage] = useState('')
-  const [photoData, setPhotoData] = useState<PhotoFormData>({
-    photo: null
-  })
+  //const [message, setMessage] = useState('')
+  //const [photoData, setPhotoData] = useState<PhotoFormData>({
+   // photo: null
+ // })
 
-  const handleChangePhoto = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  /* const handleChangePhoto = (evt: React.ChangeEvent<HTMLInputElement>) => {
     if (!evt.target.files) return
     const file = evt.target.files[0]
     let isFileInvalid = false
@@ -51,9 +51,9 @@ const AddDogForm = (props: AddDogFormProps) => {
       return
     }
     setPhotoData({ photo: evt.target.files[0] })
-  }
+  } */
 
-  const handleChange = (evt) => {
+  const handleChange = (evt:) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
 
@@ -91,8 +91,9 @@ const AddDogForm = (props: AddDogFormProps) => {
           <input 
             type="file" 
             name="photo" 
-            onChange={handleChangePhoto}
-            ref={imgInputRef}
+            id="photo"
+            onChange={handleChange}
+            //ref={imgInputRef}
           />
         </label>
 

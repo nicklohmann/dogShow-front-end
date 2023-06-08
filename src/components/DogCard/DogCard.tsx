@@ -47,15 +47,17 @@ const DogCard = (props: DogCardProps): JSX.Element => {
       <h1>{dog.name}</h1>
     
     {isCurrentUser() ? (
-      <button onClick={handleShowEdit}>
-        {editNow ? "close" : "EDIT"}
-      </button>
+      <div>
+        <button onClick={handleShowEdit}>
+          {editNow ? "close" : "EDIT"}
+        </button>
+      </div>
     ) : (
       ""
     )}
     {editNow ? (
       <div>
-        <AddDogForm dog={dog} onSubmit={onSubmit} />
+        <AddDogForm dog={dog} onSubmit={handleSubmit} />
         <div>
           <button onClick={handleRemoveDog}>Remove</button>
         </div>

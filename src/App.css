@@ -9,12 +9,39 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: sofia-pro, sans-serif;
-  --primary: #F2B138;
+  --primary: #000000;
   --secondary: #22abd4;
-  --outline: #ffffff;
+  --lighterBlue: #3ccbf7;
   --background: #f2f4f8;
   --border: rgb(220, 220, 220);
   --card-background: rgb(255, 255, 255);
+}
+
+button {
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+  box-shadow: 2px 2px 2px var(--border);
+  background-color: var(--lighterBlue);
+}
+form {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  display: flex;
+  max-width: 400px;
+  border-radius: 5px;
+  flex-direction: column;
+  background-color: var(--secondary);
+  padding: 10px 10px;
+  border: 1px solid rgb(220, 220, 220);
+  box-shadow: -1px 5px 19px -5px var(--primary);
+  -moz-box-shadow: -1px 5px 19px -5px var(--primary);
+  -webkit-box-shadow: -1px 5px 19px -5px var(--primary);
+}
+
+form label {
+  color: var(--primary);
+  padding-top: 5px;
 }
 
 main {
