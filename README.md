@@ -1,7 +1,12 @@
 ![DogShow]( https://res.cloudinary.com/dvc0nel3u/image/upload/v1686215027/DogShowLogo_qx57iv.png "DogShow")
 
-## Check out the [back-end repo](https://github.com/nicklohmann/dogShow-back-end)
+An app to show off your Dog to the internet! 
 
+# Check out the [app](https://dogshow-nickl.netlify.app)
+
+## [back-end repo](https://github.com/nicklohmann/dogShow-back-end)
+
+![Screenshot of app](https://res.cloudinary.com/dvc0nel3u/image/upload/v1686235251/Dog_Show_cxuncn.png)
 
 ## Technologies used
 * TypeScript

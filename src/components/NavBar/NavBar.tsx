@@ -22,8 +22,8 @@ const NavBar = (props: NavBarProps): JSX.Element => {
       </NavLink>
       {user ?
         <ul>
-          <li>{user.name}</li>
           <li><NavLink to="/Dogs">Dogs</NavLink></li>
+          <li>{user.name}</li>
           <li><NavLink to="" onClick={handleLogout}>Log Out</NavLink></li>
         </ul>
       :
