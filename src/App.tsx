@@ -21,7 +21,7 @@ import * as dogService from './services/dogService'
 import './App.css'
 
 // types
-import { User, Profile } from './types/models'
+import { User } from './types/models'
 import { Dog } from './types/models'
 
 function App(): JSX.Element {
@@ -49,7 +49,8 @@ function App(): JSX.Element {
   const handleAuthEvt = (): void => {
     setUser(authService.getUser())
   }
-
+  console.log(dogs)
+  
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />

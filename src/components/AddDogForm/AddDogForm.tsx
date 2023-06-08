@@ -2,7 +2,7 @@
 import React, { useState, useRef } from "react"
 
 //types
-import { PhotoFormData } from '../../types/forms'
+//import { PhotoFormData } from '../../types/forms'
 import { Dog } from "../../types/models"
 import { dogFormData } from "../../types/forms"
 
@@ -20,7 +20,7 @@ const defaultFormData = {
 
 const AddDogForm = (props: AddDogFormProps) => {
   const [formData, setFormData] = useState<dogFormData>(props.dog || defaultFormData)
-  const imgInputRef = useRef<HTMLInputElement | null>(null)
+ // const imgInputRef = useRef<HTMLInputElement | null>(null)
   //const [message, setMessage] = useState('')
   //const [photoData, setPhotoData] = useState<PhotoFormData>({
    // photo: null

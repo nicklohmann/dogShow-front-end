@@ -65,7 +65,7 @@ const DogCard = (props: DogCardProps): JSX.Element => {
       </div>
     ) 
     : (
-      <div>Owner: {dog.profileId}</div>
+      <div></div>
     )}
     </article>
   )
