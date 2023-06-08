@@ -24,6 +24,7 @@ const AddDogForm = (props: AddDogFormProps) => {
   const [formData, setFormData] = useState<dogFormData>(props.dog || defaultFormData)
   const imgInputRef = useRef<HTMLInputElement | null>(null)
   const [message, setMessage] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
   //const [isSubmitted, setIsSubmitted] = useState(false)
   const [photoData, setPhotoData] = useState<PhotoFormData>({
     photo: null
@@ -60,12 +61,20 @@ const AddDogForm = (props: AddDogFormProps) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
 
-  const handleSubmit = (evt: React.FormEvent<HTMLElement>) => {
-    evt.preventDefault()
-    props.onSubmit(formData, photoData)
-    setFormData(defaultFormData)
-    navigate('/dogs')
-  }
+  const handleSubmit = async (evt: React.FormEvent<HTMLElement>) => {
+    evt.preventDefault();
+    setIsLoading(true);
+  
+    try {
+      await props.onSubmit(formData, photoData);
+      setFormData(defaultFormData);
+      navigate('/dogs');
+    } catch (error) {
+      console.log(error);
+    }
+  
+    setIsLoading(false);
+  };
 
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
@@ -102,7 +111,9 @@ const AddDogForm = (props: AddDogFormProps) => {
           />
         </label>
 
-      <button type="submit">SUBMIT</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? 'Submitting...' : 'SUBMIT'}
+        </button>
     </form>
   )
 }
