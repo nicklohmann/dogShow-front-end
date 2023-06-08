@@ -1,5 +1,5 @@
 //assets
-import defaultPic from "../../assets/profile.png"
+import defaultPic from "../../assets/images.png"
 // types:
 import { Dog, User } from "../../types/models"
 import { dogFormData } from "../../types/forms";
