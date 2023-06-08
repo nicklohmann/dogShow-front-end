@@ -165,6 +165,12 @@ nav {
   background: var(--secondary);
   border-bottom: 1px solid rgb(200, 200, 200);
 }
+nav div  {
+  display: flex;
+  width: 100%;
+  font-weight: bold;
+  margin: 15px;
+}
 
 nav img {
   width: 150px;

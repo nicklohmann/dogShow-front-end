@@ -3,11 +3,16 @@
   align-items: center;
   align-content: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .landingPhotosBox {
   border-radius: 4px;
   border-color: var(--primary);
   display: flex;
+}
+
+div.page {
+  margin: 60px;
 }
 

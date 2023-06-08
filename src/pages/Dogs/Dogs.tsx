@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 
 // components
 import DogCard from '../../components/DogCard/DogCard'
-import AddDogForm from '../../components/AddDogForm/AddDogForm'
 
 // css
 import styles from './Dogs.module.css'
@@ -20,7 +19,6 @@ interface DogsProps {
 }
 const Dogs = (props: DogsProps): JSX.Element => {
   const [dogs, setDogs] = useState<Dog[]>([])
-  const [addDogForm, setAddDogForm] = useState(false)
 
   const { user } = props
 
@@ -35,19 +33,6 @@ const Dogs = (props: DogsProps): JSX.Element => {
     }
     user ? fetchDogs() : setDogs([])
   }, [user])
-
-  const handleNewForm = () => {
-    setAddDogForm(!addDogForm)
-  }
-
-  const handleAddDog = async (formData: dogFormData) => {
-    try {
-      const addDog = await dogService.create(formData)
-      setDogs([addDog, ...dogs])
-    } catch (err) {
-      console.log(err);
-    }
-  }
 
   const handleUpdateDog = async (formData: dogFormData) => {
     try {
@@ -85,13 +70,6 @@ const Dogs = (props: DogsProps): JSX.Element => {
 
   return (
     <main className="list">
-      
-      <button onClick={handleNewForm} id='New-Dog'>
-        {" "}
-        {addDogForm ? "cancel" : "Add Dog"}
-      </button>
-      
-      {addDogForm ? <AddDogForm onSubmit={handleAddDog} />: ""}
       {dogs.map((dog: Dog) => (
         <DogCard
           key={dog.id}
