@@ -14,8 +14,8 @@ interface AddDogFormProps {
 
 const defaultFormData = {
   name: "",
-  breed:"",
-  photo:""
+  breed: "",
+  photo: ""
 
 }
 
@@ -24,7 +24,7 @@ const AddDogForm = (props: AddDogFormProps) => {
   const [formData, setFormData] = useState<dogFormData>(props.dog || defaultFormData)
   const imgInputRef = useRef<HTMLInputElement | null>(null)
   const [message, setMessage] = useState('')
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  //const [isSubmitted, setIsSubmitted] = useState(false)
   const [photoData, setPhotoData] = useState<PhotoFormData>({
     photo: null
   })

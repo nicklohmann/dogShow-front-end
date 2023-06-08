@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 // types
 import { User, Dog } from '../../types/models'
 import AddDogForm from '../../components/AddDogForm/AddDogForm';
-import { dogFormData } from '../../types/forms'
+import { PhotoFormData, dogFormData } from '../../types/forms'
 
 // service
 import * as dogService from '../../services/dogService'
@@ -31,7 +31,7 @@ const Landing = (props: LandingProps): JSX.Element => {
     user ? fetchDogs() : setDogs([])
   }, [user])
 
-  const handleAddDog = async (formData: dogFormData) => {
+  const handleAddDog = async (formData: dogFormData, photoData: PhotoFormData) => {
     try {
       const addDog = await dogService.create(formData)
       setDogs([addDog, ...dogs])
