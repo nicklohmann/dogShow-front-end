@@ -9,7 +9,7 @@ import styles from './Dogs.module.css'
 
 // types
 import { Dog, User } from '../../types/models'
-import { dogFormData } from '../../types/forms'
+import { dogFormData, PhotoFormData } from '../../types/forms'
 
 // service
 import * as dogService from '../../services/dogService'
@@ -34,18 +34,20 @@ const Dogs = (props: DogsProps): JSX.Element => {
     user ? fetchDogs() : setDogs([])
   }, [user])
 
-  const handleUpdateDog = async (formData: dogFormData) => {
+  const handleUpdateDog = async (formData: dogFormData, photoData: PhotoFormData) => {
     try {
+      //console.log(photoData);
       const updatedDog = await dogService.update(formData)
-      if(updatedDog) {
-        const nextDogs = []
-        for (const dog of dogs) {
-          if (formData.id === dog.id) {
-            nextDogs.push(updatedDog)
-          } else {
-            nextDogs.push(dog)
-          }
-        }
+      if(updatedDog?.id) {
+        const photo = await dogService.addDogPhoto(photoData, updatedDog.id)
+        console.log(photo);
+        console.log(photoData);
+        //console.log(updatedDog);
+        const dogWithPhoto = {...updatedDog, photo: photo}
+        
+        const nextDogs = dogs.map((dog) =>
+          dog.id === formData.id ? dogWithPhoto : dog
+        );
         setDogs(nextDogs)
       }
     } catch (err) {

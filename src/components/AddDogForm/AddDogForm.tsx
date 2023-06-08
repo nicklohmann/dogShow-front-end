@@ -5,11 +5,11 @@ import React, { useState, useRef } from "react"
 import { PhotoFormData } from '../../types/forms'
 import { Dog } from "../../types/models"
 import { dogFormData } from "../../types/forms"
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface AddDogFormProps {
   dog?: Dog;
-  onSubmit: (formData: Dog) => void
+  onSubmit: (formData: dogFormData, photoData: PhotoFormData) => void
 }
 
 const defaultFormData = {
@@ -62,7 +62,7 @@ const AddDogForm = (props: AddDogFormProps) => {
 
   const handleSubmit = (evt: React.FormEvent<HTMLElement>) => {
     evt.preventDefault()
-    props.onSubmit(formData)
+    props.onSubmit(formData, photoData)
     setFormData(defaultFormData)
     navigate('/dogs')
   }

@@ -3,6 +3,7 @@
 export interface dogFormData {
   name: string;
   breed: string;
+  photo: string;
   id?: number
 }
 

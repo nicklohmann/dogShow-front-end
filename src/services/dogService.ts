@@ -48,16 +48,13 @@ async function deleteDog(dogId: number): Promise<void> {
   })
 }
 
-async function addDogPhoto(photoData: PhotoFormData): Promise<string> {
+async function addDogPhoto(photoData: PhotoFormData, dogId: number): Promise<string> {
+  console.log(photoData);
   if (!photoData.photo) throw new Error("No photo found.")
-  
   const photoFormData = new FormData()
   photoFormData.append('photo', photoData.photo)
-
   const user = tokenService.getUserFromToken()
   if (!user) throw new Error("No user.")
-  
-  const dogId = user.profile.id
   const res = await fetch(`${BASE_URL}/${dogId}/add-photo`, {
     method: 'PUT',
     headers: {

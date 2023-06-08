@@ -2,7 +2,7 @@
 import defaultPic from "../../assets/images.png"
 // types:
 import { Dog, User } from "../../types/models"
-import { dogFormData } from "../../types/forms";
+import { PhotoFormData, dogFormData } from "../../types/forms";
 
 //components
 import AddDogForm from "../AddDogForm/AddDogForm";
@@ -11,7 +11,7 @@ import { useState } from "react";
 interface DogCardProps {
   dog: Dog;
   user: User | null
-  onSubmit: (formData: dogFormData) => void
+  onSubmit: (formData: dogFormData, photoData: PhotoFormData) => Promise<void>
   onDelete: (dogId: number) => Promise<void>
 }
 
@@ -27,8 +27,8 @@ const DogCard = (props: DogCardProps): JSX.Element => {
     setEditNow(!editNow)
   }
 
-  const handleSubmit = (formData: dogFormData) => {
-    onSubmit({ id: dog.id, ...formData})
+  const handleSubmit = (formData: dogFormData, photoData: PhotoFormData) => {
+    onSubmit(formData, photoData)
     handleShowEdit()
   }
 
