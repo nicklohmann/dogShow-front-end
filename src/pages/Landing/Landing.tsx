@@ -39,12 +39,15 @@ const Landing = (props: LandingProps): JSX.Element => {
       console.log(err);
     }
   }
-  
+
   return (
     <main className={styles.container}>
-      <div className={styles.page}>
+      {!user ?<h1>Sign In first to add your Dog</h1>
+      :
+      <div>
         <AddDogForm onSubmit={handleAddDog}/>
       </div>
+}
       <div className={styles.page}>
         <img src="https://res.cloudinary.com/dvc0nel3u/image/upload/v1686215027/DogShowLogo_qx57iv.png" alt="" />
       </div>
