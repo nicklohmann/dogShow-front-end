@@ -14,6 +14,9 @@ const NavBar = (props: NavBarProps): JSX.Element => {
   
   return (
     <nav>
+      <NavLink to="/">
+        <img className='logo' src="https://res.cloudinary.com/dvc0nel3u/image/upload/v1686215027/DogShowLogo_qx57iv.png" alt="" />
+      </NavLink>
       {user ?
         <ul>
           <li>{user.name}</li>

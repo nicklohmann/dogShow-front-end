@@ -53,7 +53,7 @@ const AddDogForm = (props: AddDogFormProps) => {
     setPhotoData({ photo: evt.target.files[0] })
   } */
 
-  const handleChange = (evt:) => {
+  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
 

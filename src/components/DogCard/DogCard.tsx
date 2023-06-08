@@ -36,6 +36,7 @@ const DogCard = (props: DogCardProps): JSX.Element => {
     if (dog.id) {
       onDelete(dog.id)
     }
+    
   }
 
   return (
@@ -45,7 +46,7 @@ const DogCard = (props: DogCardProps): JSX.Element => {
         alt={`${dog.name}'s picture`} 
       />
       <h1>{dog.name}</h1>
-    
+      <h2>{dog.breed}</h2>
     {isCurrentUser() ? (
       <div>
         <button onClick={handleShowEdit}>
@@ -64,9 +65,7 @@ const DogCard = (props: DogCardProps): JSX.Element => {
       </div>
     ) 
     : (
-      <div>
-        <h2>{dog.breed}</h2>
-      </div>
+      <div>Owner: {dog.profileId}</div>
     )}
     </article>
   )
