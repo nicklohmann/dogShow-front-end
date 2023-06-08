@@ -7,3 +7,8 @@
 .container > p {
   margin: 8px;
 }
+
+button #New-Dog {
+  font-size: 100px;
+  color: green;
+}

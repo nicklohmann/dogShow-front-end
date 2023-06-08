@@ -3,3 +3,10 @@
   align-items: center;
   flex-direction: column;
 }
+
+.landingPhotosBox {
+  border-radius: 4px;
+  border-color: var(--primary);
+  display: flex;
+  background-color:
+}

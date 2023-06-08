@@ -24,6 +24,7 @@ button {
   box-shadow: 2px 2px 2px var(--border);
   background-color: var(--lighterBlue);
 }
+
 form {
   font-family: "Montserrat", sans-serif;
   width: 100%;

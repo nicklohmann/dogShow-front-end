@@ -38,8 +38,8 @@ async function update(formData: dogFormData): Promise<Dog> {
   return await res.json()
 }
 
-async function deleteDog(): Promise<void> {
-  await fetch(`${BASE_URL}/delete`, {
+async function deleteDog(dogId: number): Promise<void> {
+  await fetch(`${BASE_URL}/${dogId}`, {
     method: 'DELETE',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,

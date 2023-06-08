@@ -85,12 +85,12 @@ const Dogs = (props: DogsProps): JSX.Element => {
 
   return (
     <main className="list">
-      <div>
-      <button onClick={handleNewForm}>
+      
+      <button onClick={handleNewForm} id='New-Dog'>
         {" "}
         {addDogForm ? "cancel" : "Add Dog"}
       </button>
-      </div>
+      
       {addDogForm ? <AddDogForm onSubmit={handleAddDog} />: ""}
       {dogs.map((dog: Dog) => (
         <DogCard
