@@ -3,7 +3,6 @@ import styles from './Landing.module.css'
 
 // types
 import { User } from '../../types/models'
-import { login } from '../../services/authService';
 
 interface LandingProps {
   user: User | null;

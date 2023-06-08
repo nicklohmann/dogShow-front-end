@@ -1,5 +1,5 @@
 //npm modules
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 
 //types
 //import { PhotoFormData } from '../../types/forms'
