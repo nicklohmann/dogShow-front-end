@@ -32,16 +32,10 @@ const Landing = (props: LandingProps): JSX.Element => {
   const handleAddDog = async (formData: dogFormData, photoData: PhotoFormData) => {
     try {
       const addDog = await dogService.create(formData)
-      console.log(formData);
       
       if(addDog?.id) {
         const photo = await dogService.addDogPhoto(photoData, addDog.id)
-        //console.log(photo);
-      console.log(addDog);
-      
         const dogWithPhoto = {...addDog, photo: photo}
-        console.log(dogWithPhoto);
-        
         setDogs([dogWithPhoto, ...dogs])
       }
     } catch (err) {

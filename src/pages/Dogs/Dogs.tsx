@@ -36,15 +36,10 @@ const Dogs = (props: DogsProps): JSX.Element => {
 
   const handleUpdateDog = async (formData: dogFormData, photoData: PhotoFormData) => {
     try {
-      //console.log(photoData);
       const updatedDog = await dogService.update(formData)
       if(updatedDog?.id) {
         const photo = await dogService.addDogPhoto(photoData, updatedDog.id)
-        console.log(photo);
-        console.log(photoData);
-        //console.log(updatedDog);
         const dogWithPhoto = {...updatedDog, photo: photo}
-        
         const nextDogs = dogs.map((dog) =>
           dog.id === formData.id ? dogWithPhoto : dog
         );

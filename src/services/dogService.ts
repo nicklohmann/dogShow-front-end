@@ -49,7 +49,6 @@ async function deleteDog(dogId: number): Promise<void> {
 }
 
 async function addDogPhoto(photoData: PhotoFormData, dogId: number): Promise<string> {
-  console.log(photoData);
   if (!photoData.photo) throw new Error("No photo found.")
   const photoFormData = new FormData()
   photoFormData.append('photo', photoData.photo)
