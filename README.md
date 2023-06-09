@@ -9,14 +9,15 @@ An app to show off your Dog to the internet!
 ![Screenshot of app](https://res.cloudinary.com/dvc0nel3u/image/upload/v1686235251/Dog_Show_cxuncn.png)
 
 ## Technologies used
-* TypeScript
-* JavaScript
-* React
-* Express
-* JWT
-* Node.js
-* HTML
+* PERN Stack in Typescript
+  * PostgreSQL
+  * Express
+  * React
+  * Node
+* JWT auth
 * CSS
+* Supabase
+* Cloudinary
 * Fly.io
 * Netlify
 * Git
